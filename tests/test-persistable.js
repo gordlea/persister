@@ -7,7 +7,7 @@ module.exports = {
             persistableObjectDir: path.normalize(__dirname + '/objects'),
             persistableObjectConfigDir: path.normalize(__dirname + '/configs'),
             dbConfig: {
-                db: "persister-testing"
+                db: "persistertesting"
             }
 
         });
@@ -45,6 +45,7 @@ module.exports = {
         Robot.find({ id: "t800"}, function(results) {
             test.ok(results.length === 1, "incorrect number of results");
             var loadedKillerRobotGuy = results[0];
+//            console.dir(loadedKillerRobotGuy);
 
             var loadedId = loadedKillerRobotGuy.id;
             var expectedId = killerRobotGuy.id;

@@ -8,7 +8,14 @@ var Applyr = require('applyr');
 var Configr = require("../configr");
 
 var MongoPersister = KlassyEventEmitter.extend(function(config) {
-    Applyr.applyConfigTo(this, config, this.defaults());
+    var defaults = this.defaults();
+
+    var dbConfig = {};
+    Applyr.applyConfigTo(dbConfig, config.dbConfig, defaults.dbConfig);
+    delete defaults.dbConfig;
+    config.dbConfig = dbConfig;
+    Applyr.applyConfigTo(this, config, defaults);
+//    console.dir(this.dbConfig);
 
     if (this.autoloadObjectsWithConfig && !MongoPersister.alreadyLoadedDefaultData) {
         this.once('ready', function() {
@@ -19,8 +26,10 @@ var MongoPersister = KlassyEventEmitter.extend(function(config) {
 }).methods({
         defaults: function() {
             return {
-                port: 27017,
-                host: 'localhost',
+                 dbConfig: {
+                    port: 27017,
+                    host: 'localhost'
+                },
                 autoloadObjectsWithConfig: true
             }
         },
@@ -78,7 +87,7 @@ var MongoPersister = KlassyEventEmitter.extend(function(config) {
 
         _connectToDb: function(dbConfig) {
             //checks for environmental variables for heroku compatibility
-            var url = process.env.MONGOLAB_URI || 'mongodb://' + dbConfig.host + ':' + dbConfig.port + '/' + dbConfig.db;
+            var url = process.env.MONGOLAB_URI || dbConfig.host + '/' + dbConfig.db;
             MongoPersister.client = require("mongojs").connect(url, MongoPersister.collections);
         },
 
