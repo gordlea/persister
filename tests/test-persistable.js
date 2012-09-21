@@ -68,7 +68,7 @@ module.exports = {
                 test.equal(countriesWithIdCA[0].countryName, "Canada", "Canada should be the only country returned.");
 
                 Country.find({continentName: "North America"}, function(countriesInNorthAmerica) {
-                    test.ok(countriesInNorthAmerica.length === 2, "North America only has 2 countries");
+                    test.ok(countriesInNorthAmerica.length === 41, "North America only has 2 countries");
                 });
             });
             test.done();

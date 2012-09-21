@@ -31,7 +31,7 @@ var MongoPersister = KlassyEventEmitter.extend(function(config) {
 
             this.once("collectionsReady", function() {
 //                console.log("MongoPersister: starting db");
-                MongoPersister._connectToDb(this.dbCOnfig);
+                MongoPersister._connectToDb(this.dbConfig);
                 this.emit("ready");
             }.bind(this));
             this._checkPersistableCollectionsAllLoaded(pclasses);
