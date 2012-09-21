@@ -16,8 +16,6 @@ module.exports = {
         });
         persister.on('ready', function() {
             callback();
-
-
         });
         persister.start();
     },
