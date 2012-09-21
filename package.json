@@ -1,7 +1,7 @@
 {
     "name": "persister",
     "version": "0.0.1",
-    "private": true,
+    "private": false,
 	"main": "./persister.js",
 	"engines" : {
 		"node" : "0.8.x",
@@ -12,9 +12,9 @@
         "klass": "1.2.2",
         "applyr": "0.0.3",
         "mongojs": "0.4.3",
-        "colors": "0.6.0-1",
-        "nodeunit": "0.7.4"
+        "colors": "0.6.0-1"
     },
-	"optionalDependencies": {
+	"devDependencies": {
+        "nodeunit": "0.7.4"
 	}
 }
