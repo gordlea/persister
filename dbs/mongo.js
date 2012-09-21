@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var databaseUrl = "navcom"; // "username:password@example.com/mydb"
+
 var path = require('path');
 var fs = require('fs');
 var events = require('events');
@@ -31,7 +31,7 @@ var MongoPersister = KlassyEventEmitter.extend(function(config) {
 
             this.once("collectionsReady", function() {
 //                console.log("MongoPersister: starting db");
-                MongoPersister._connectToDb();
+                MongoPersister._connectToDb(this.dbCOnfig);
                 this.emit("ready");
             }.bind(this));
             this._checkPersistableCollectionsAllLoaded(pclasses);
@@ -76,9 +76,9 @@ var MongoPersister = KlassyEventEmitter.extend(function(config) {
             return pclasses;
         },
 
-        _connectToDb: function() {
+        _connectToDb: function(dbConfig) {
             //checks for environmental variables for heroku compatibility
-            var url = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/' + databaseUrl;
+            var url = process.env.MONGOLAB_URI || 'mongodb://' + dbConfig.host + ':' + dbConfig.port + '/' + dbConfig.db;
             MongoPersister.client = require("mongojs").connect(url, MongoPersister.collections);
         },
 

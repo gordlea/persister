@@ -14,13 +14,6 @@
         "mongojs": "0.4.3",
         "colors": "0.6.0-1"
     },
-    "bundledDependencies": [
-        "underscore",
-            "klass",
-            "applr",
-            "mongojs",
-            "colors"
-    ],
 	"devDependencies": {
         "nodeunit": "0.7.4"
 	}
