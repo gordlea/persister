@@ -56,7 +56,7 @@ var Configr = klass({
 
 	},
 
-	loadAndPersistAll: function(baseObjectPath, baseConfigPath) {
+	loadAndPersistAll: function(baseObjectPath, baseConfigPath, callback) {
 
 
 		var pobFiles = fs.readdirSync(baseObjectPath);
@@ -79,9 +79,15 @@ var Configr = klass({
 
 			var pconfigs = Configr.loadConfigs(path, baseConfigPath);
 
+            var pconfigsPersisted = 0;
 			for (var j = 0; j < pconfigs.length; j++) {
 				var pinstance = new pclass(pconfigs[j]);
-				pinstance.persist();
+				pinstance.persist(function(err) {
+                    pconfigsPersisted++;
+                    if (pconfigsPersisted === pconfigs.length) {
+                        callback(err);
+                    }
+                });
 			}
 		}
 	}

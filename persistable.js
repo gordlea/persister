@@ -15,17 +15,21 @@ var Persistable = klass(function(config) {
             return {};
         },
 
-        persist: function() {
+        persist: function(callback) {
+
             if (this.id === undefined || this.id === null) {
                 throw new Error("Missing id in persistable of type " + this.getCollectionName());
             }
             var db = Persister.getClient();
-
-            db[this.getCollectionName()].update({id: this.id}, this, {upsert: true}, function(err) {
-                if (err !== undefined && err !== null) {
-                    console.warn("error persisting object: %s", err);
-                }
-            });
+            if (callback === undefined) {
+                db[this.getCollectionName()].update({id: this.id}, this, {upsert: true}, function(err) {
+                    if (err !== undefined && err !== null) {
+                        console.warn("error persisting object: %s", err);
+                    }
+                });
+            } else {
+                db[this.getCollectionName()].update({id: this.id}, this, {upsert: true}, callback);
+            }
         }
 
 

@@ -70,9 +70,10 @@ module.exports = {
 
                 Country.find({continentName: "North America"}, function(countriesInNorthAmerica) {
                     test.ok(countriesInNorthAmerica.length === 41, "North America only has 2 countries");
+                    test.done();
                 });
             });
-            test.done();
+
         });
     }
 };

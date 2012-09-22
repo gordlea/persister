@@ -7,7 +7,7 @@ var KlassyEventEmitter = klass(events.EventEmitter);
 var Applyr = require('applyr');
 var Configr = require("../configr");
 
-var MongoPersister = KlassyEventEmitter.extend(function(config) {
+var MongoPersister = KlassyEventEmitter.extend(function (config) {
     var defaults = this.defaults();
 
     var dbConfig = {};
@@ -17,38 +17,47 @@ var MongoPersister = KlassyEventEmitter.extend(function(config) {
     Applyr.applyConfigTo(this, config, defaults);
 //    console.dir(this.dbConfig);
 
-    if (this.autoloadObjectsWithConfig && !MongoPersister.alreadyLoadedDefaultData) {
-        this.once('ready', function() {
-            Configr.loadAndPersistAll(this.persistableObjectDir, this.persistableObjectConfigDir);
-            MongoPersister.alreadyLoadedDefaultData = true;
-        }.bind(this));
-    }
+
 }).methods({
-        defaults: function() {
+        defaults:function () {
             return {
-                 dbConfig: {
-                    port: 27017,
-                    host: 'localhost'
+                dbConfig:{
+                    port:27017,
+                    host:'localhost'
                 },
-                autoloadObjectsWithConfig: true
+                autoloadObjectsWithConfig:true
             }
         },
 
-        start: function() {
+        start:function () {
 //            console.log("MongoPersister: registering collections");
             var pclasses = MongoPersister._registerCollections(this.persistableObjectDir);
 
-            this.once("collectionsReady", function() {
+            this.once("collectionsReady", function () {
 //                console.log("MongoPersister: starting db");
                 MongoPersister._connectToDb(this.dbConfig);
-                this.emit("ready");
+
+                if (this.autoloadObjectsWithConfig) {
+
+//                    console.time("Load and persist all");
+
+                    Configr.loadAndPersistAll(this.persistableObjectDir, this.persistableObjectConfigDir, function () {
+//                        console.timeEnd("Load and persist all");
+
+                        this.emit("ready");
+                    }.bind(this));
+
+                } else {
+
+                    this.emit("ready");
+                }
             }.bind(this));
             this._checkPersistableCollectionsAllLoaded(pclasses);
 
 
         },
 
-        _checkPersistableCollectionsAllLoaded: function(pobs) {
+        _checkPersistableCollectionsAllLoaded:function (pobs) {
             var loaded = true;
             for (var i = 0; i < pobs.length; i++) {
 
@@ -66,13 +75,13 @@ var MongoPersister = KlassyEventEmitter.extend(function(config) {
             }
         }
     }).statics({
-        alreadyLoadedDefaultData: false,
-        collections: [],
-        getClient: function() {
+        alreadyLoadedDefaultData:false,
+        collections:[],
+        getClient:function () {
             return MongoPersister.client;
         },
 
-        _registerCollections: function(pobjDir) {
+        _registerCollections:function (pobjDir) {
             //first make sure all the persistable classes have been registered
             var pobPath = pobjDir;
             var pobFiles = fs.readdirSync(pobPath);
@@ -85,13 +94,13 @@ var MongoPersister = KlassyEventEmitter.extend(function(config) {
             return pclasses;
         },
 
-        _connectToDb: function(dbConfig) {
+        _connectToDb:function (dbConfig) {
             //checks for environmental variables for heroku compatibility
             var url = process.env.MONGOLAB_URI || dbConfig.host + '/' + dbConfig.db;
             MongoPersister.client = require("mongojs").connect(url, MongoPersister.collections);
         },
 
-        registerCollection: function(collectionName) {
+        registerCollection:function (collectionName) {
             MongoPersister.collections.push(collectionName);
         }
     });
