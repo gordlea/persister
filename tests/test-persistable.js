@@ -1,4 +1,5 @@
 var path = require('path');
+var Country = require("./objects/country");
 //var Robot = require('./objects/robot');
 //
 module.exports = {
@@ -58,22 +59,26 @@ module.exports = {
     },
 
     testCountryDefaultDataLoaded: function(test) {
-        var Country = require("./objects/country");
+
 
         Country.find(function(allCountries) {
-
             test.equal(allCountries.length, 250, "There should be 250 countries returned.");
+            test.done();
+        });
+    },
+    testCountryFindById: function(test) {
+        Country.find({id: "CA"}, function(countriesWithIdCA) {
+            test.ok(countriesWithIdCA.length === 1);
+            test.equal(countriesWithIdCA[0].countryName, "Canada", "Canada should be the only country returned.");
+            test.done();
 
-            Country.find({id: "CA"}, function(countriesWithIdCA) {
-                test.ok(countriesWithIdCA.length === 1);
-                test.equal(countriesWithIdCA[0].countryName, "Canada", "Canada should be the only country returned.");
+        });
+    },
+    testCountryFindByContinentName: function(test) {
 
-                Country.find({continentName: "North America"}, function(countriesInNorthAmerica) {
-                    test.ok(countriesInNorthAmerica.length === 41, "North America only has 2 countries");
-                    test.done();
-                });
-            });
-
+        Country.find({continentName: "North America"}, function(countriesInNorthAmerica) {
+            test.ok(countriesInNorthAmerica.length === 41, "North America only has 2 countries");
+            test.done();
         });
     }
 };
