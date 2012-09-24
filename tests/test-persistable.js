@@ -16,6 +16,7 @@ module.exports = {
             persister.set('backend', 'mongo');
         });
         persister.on('ready', function() {
+            console.log("got ready")
             callback();
         });
         persister.start();

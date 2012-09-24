@@ -34,7 +34,7 @@ var MongoPersister = KlassyEventEmitter.extend(function (config) {
             var pclasses = MongoPersister._registerCollections(this.persistableObjectDir);
 
             this.once("collectionsReady", function () {
-//                console.log("MongoPersister: starting db");
+                console.log("MongoPersister: starting db");
                 MongoPersister._connectToDb(this.dbConfig);
 
                 if (this.autoloadObjectsWithConfig) {
@@ -43,7 +43,7 @@ var MongoPersister = KlassyEventEmitter.extend(function (config) {
 
                     Configr.loadAndPersistAll(this.persistableObjectDir, this.persistableObjectConfigDir, function () {
 //                        console.timeEnd("Load and persist all");
-
+                        console.log("should be emitting ready");
                         this.emit("ready");
                     }.bind(this));
 
