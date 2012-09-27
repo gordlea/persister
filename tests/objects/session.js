@@ -1,4 +1,4 @@
-var Persistable = require("../../persister").Persistable;
+var Persistable = require("../../index").Persistable;
 var _ = require("underscore");
 
 var Session = Persistable.extend(function (config) {

@@ -1,4 +1,4 @@
-var Persistable = require("../../persister").Persistable;
+var Persistable = require("../../index").Persistable;
 var _ = require('underscore');
 
 var Game = Persistable.extend(function(config) {

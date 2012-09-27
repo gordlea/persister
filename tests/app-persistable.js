@@ -24,17 +24,10 @@ var robotConf = {
     ]
 };
 
-        var persister = require('../persister').setup({
-            persistableObjectDir: path.normalize(__dirname + '/objects'),
-            persistableObjectConfigDir: path.normalize(__dirname + '/configs'),
-            dbConfig: {
-                db: "persisterasserting"
-            }
+        var persister = require('../index');
+        console.dir(persister);
 
-        });
-        persister.configure(function() {
-            persister.set('backend', 'mongo');
-        });
+
         persister.on('ready', function() {
             console.log("got ready");
 
@@ -70,6 +63,7 @@ var robotConf = {
 
 
             Country.find({continentName: "North America"}, function(countriesInNorthAmerica) {
+                console.log("countriesInNorthAmerica.length: %s", countriesInNorthAmerica.length);
                 assert.ok(countriesInNorthAmerica.length === 41, "North America only has 2 countries");
                 console.log("countriesInNorthAmerica worked")
 
@@ -78,6 +72,13 @@ var robotConf = {
 
 
         });
-        persister.start();
+        persister.start({
+            persistableObjectDir: path.normalize(__dirname + '/objects'),
+            persistableObjectConfigDir: path.normalize(__dirname + '/configs'),
+            dbConfig: {
+                db: "persister-test"
+            }
+
+        });
 
 

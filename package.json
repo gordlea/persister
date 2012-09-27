@@ -2,7 +2,7 @@
     "name": "persister",
     "version": "0.0.1",
     "private": false,
-	"main": "./persister.js",
+	"main": "./index.js",
 	"engines" : {
 		"node" : "0.8.x",
 		"npm" : "1.1.x"
