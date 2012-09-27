@@ -136,18 +136,8 @@ var Robot = require('./objects/robot');
 
 
 
-var persister = require('persister').setup({
-    persistableObjectDir: path.normalize(__dirname + '/objects'),
-    persistableObjectConfigDir: path.normalize(__dirname + '/configs'),
-    dbConfig: {
-        db: "persister-example"
-    }
+var persister = require('persister');
 
-});
-//optional, mongodb is the only backend supported currently
-persister.configure(function() {
-    persister.set('backend', 'mongo');
-});
 
 // persister fires the ready event when it has registered all of your 
 // collections and connected to the database
@@ -197,6 +187,14 @@ persister.on('ready', function() {
     });
 	
 });
-persister.start();
+persister.start({
+    persistableObjectDir: path.normalize(__dirname + '/objects'),
+    persistableObjectConfigDir: path.normalize(__dirname + '/configs'),
+    dbConfig: {
+        db: "persister-example",
+        port:27017,
+        host:'localhost'
+    }
+});
 
 ```
