@@ -43,7 +43,7 @@ First create a new node project. Your package.json should be something like this
     "name": "persister-example",
     "version": "0.0.1",
     "dependencies": {    
-        "persister": "https://github.com/gordlea/persister/tarball/master",
+        "persister": "0.0.4",
     	"underscore": "1.3.3"
     }
 }
