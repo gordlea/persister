@@ -76,7 +76,9 @@ var robotConf = {
             persistableObjectDir: path.normalize(__dirname + '/objects'),
             persistableObjectConfigDir: path.normalize(__dirname + '/configs'),
             dbConfig: {
-                db: "persister-test"
+                db: "persister-test",
+                port:27017,
+                host:'localhost'
             }
 
         });
