@@ -1,0 +1,53 @@
+{
+    "id": "rock_the_boat",
+	"name": "Rock the Boat",
+	"description": "The Italians are attacking eastern Canada. Again!",
+	"startDate": "Wed, 09 Aug 1996 00:00:00 GMT",
+    "sides" : [{
+        "id": "JTFA",
+        "name": "Joint Task Force Atlantic",
+        "countries": ["CA"]
+    },{
+        "id": "COMFORAL",
+        "name": "Comando Forze d'Altura",
+        "countries": ["IT"]
+    }],
+    "initialState" : [{
+        "side": "JTFA",
+        "country": ["CA"],
+        "units": [{
+            "id": "FFH337",
+            "position": {
+                "lat": 47.359665,
+                "lon": -59.941406
+            },
+            "heading": 26,
+            "speed": 7.2
+        }]
+    },{
+        "side": "COMFORAL",
+        "country": ["IT"],
+        "units": [{
+            "id": "D553",
+            "position": {
+                "lat": 46.960761,
+                "lon": -58.974609
+            },
+            "heading": 281,
+            "speed": 9.4
+        }]
+    },{
+        "side": "NEUTRAL",
+        "country": [],
+        "units": [{
+            "id": "seawise_giant",
+            "position": {
+                "lat": 47.185233,
+                "lon": -59.501953
+            },
+            "heading": 286,
+            "speed": 7.0
+        }]
+
+    }]
+}

@@ -1,0 +1,151 @@
+{
+    "name": "Horizon",
+    "className": "Horizon class frigate",
+    "wikipediaUrl": "http://en.wikipedia.org/wiki/Horizon_class_frigate",
+    "wikipediaExportUrl": "http://en.wikipedia.org/wiki/Special:Export/Horizon_class_frigate",
+    "dbpediaUrl": "http://dbpedia.org/data/Horizon_class_frigate.json",
+    "type": "frigate",
+    "displacement": 6500,
+    "length": 150.6,
+    "beam": 20.3,
+    "draught": 5.4,
+    "propulsion": [
+        {
+            "name": "General Electric LM2500 gas turbine",
+            "quantity": 2,
+            "hp": 62560
+        },
+        {
+            "name": "SEMT Pielstick 12 PA6 STC Diesel",
+            "quantity": 2,
+            "hp": 11750
+        }
+    ],
+    "speed": 54,
+    "range": 7000,
+    "complement": 110,
+    "sensors": {
+        "airSurfaceSearch": "UKAMS Long Range Radar (LRR) mod. S1850",
+        "longRangeAirSearch": "Alenia Marconi Systems EMPAR",
+        "surfaceSearch": "Alenia Marconi Systems Surface Surveillance",
+        "fireControl": "Alenia Marconi Systems ORION RTN 25 X",
+        "ir": "SAGEM Vampire Bispectral MB IRST",
+        "activeSonar": "Thomson Marconi UMS 4110 CL",
+        "passiveSonar": "Towed Array"
+    },
+    "ew": "TKWA/MASS (Multi Ammunition Softkill System)",
+    "armament": [
+        {
+            "type": "Exocet MM40 SSM",
+            "quantity": 8
+        },
+        {
+            "type": "Aster 15 SAM",
+            "quantity": 24
+        },
+        {
+            "type": "Aster 30 SAM",
+            "quantity": 24
+        },
+        {
+            "type": "Otobreda 76 mm Super Rapid Gun",
+            "quantity": 2
+        },
+        {
+            "type": "20 mm modèle F2 gun",
+            "quantity": 2
+        },
+        {
+            "type": "MU90 Impact Torpedo",
+            "quantity": 16
+        }
+    ],
+    "aircraft": [
+        "NH-90"
+    ],
+    "boats": ["EDO", "EFRC", "Hurricane 733"],
+    "members": [
+        {
+            "id": "D620",
+            "name": "Forbin",
+            "number": "D620",
+            "country": "fr"
+        },
+        {
+            "id": "D621",
+            "name": "Chevalier Paul",
+            "number": "D621",
+            "country": "fr"
+        },
+        {
+            "id": "D553",
+            "name": "Andrea Doria",
+            "number": "D553",
+            "country": "it",
+            "armament": [
+                {
+                    "type": "TESEO Mk-2/A SSM",
+                    "quantity": 8
+                },
+                {
+                    "type": "Aster 15 SAM",
+                    "quantity": 24
+                },
+                {
+                    "type": "Aster 30 SAM",
+                    "quantity": 24
+                },
+                {
+                    "type": "Otobreda 76 mm Super Rapid Gun",
+                    "quantity": 3
+                },
+                {
+                    "type": "KBA Oerlikon 25/80 mm",
+                    "quantity": 2
+                },
+                {
+                    "type": "MU90 Impact Torpedo",
+                    "quantity": 16
+                }
+            ],
+            "aircraft": [
+            "EH-101"
+            ]
+        },
+        {
+            "id": "D554",
+            "name": "Caio Duilio",
+            "number": "D554",
+            "country": "it",
+            "armament": [
+                {
+                    "type": "TESEO Mk-2/A SSM",
+                    "quantity": 8
+                },
+                {
+                    "type": "Aster 15 SAM",
+                    "quantity": 24
+                },
+                {
+                    "type": "Aster 30 SAM",
+                    "quantity": 24
+                },
+                {
+                    "type": "Otobreda 76 mm Super Rapid Gun",
+                    "quantity": 3
+                },
+                {
+                    "type": "KBA Oerlikon 25/80 mm",
+                    "quantity": 2
+                },
+                {
+                    "type": "MU90 Impact Torpedo",
+                    "quantity": 16
+                }
+            ],
+            "aircraft": [
+                "EH-101"
+            ]
+        }
+    ]
+}

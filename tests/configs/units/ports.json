@@ -1,0 +1,14 @@
+{
+	"sensors": {
+		"surfaceSearch": "furuno_far28x7"
+	},
+	"members": [{
+		"id": "dep_bay",
+		"name": "Departure Bay",
+		"position": [49.193450, -123.954964]
+	},{
+		"id": "horseshoe_bay",
+		"name": "Horseshoe Bay",
+		"position": [49.375972, -123.271666]
+	}]
+}

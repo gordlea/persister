@@ -58,6 +58,7 @@ var MongoPersister = KlassyEventEmitter.extend(function (config) {
         },
 
         _checkPersistableCollectionsAllLoaded:function (pobs) {
+            console.dir(MongoPersister.collections)
             var loaded = true;
             for (var i = 0; i < pobs.length; i++) {
 
@@ -67,10 +68,10 @@ var MongoPersister = KlassyEventEmitter.extend(function (config) {
             }
 
             if (!loaded) {
-//                console.log("collections not loaded, waiting 1000ms and trying again");
+                console.error("collections not loaded, waiting 1000ms and trying again");
                 setTimeout(this._checkPersistableCollectionsAllLoaded.bind(this), 1000, pobs);
             } else {
-//                console.log("collections all loaded");
+                console.log("collections all loaded");
                 this.emit("collectionsReady");
             }
         }

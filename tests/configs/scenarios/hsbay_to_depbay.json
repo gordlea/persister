@@ -1,0 +1,37 @@
+{
+    "id": "hsb2db",
+    "name": "Horseshoe Bay to Departure Bay Ferry route",
+    "description": "A test scenario featuring the Queen of Cowichan going about it's route.",
+    "startDate": "Wed, 09 Aug 2012 06:19:00 PDT",
+    "sides" : [{
+        "id": "JTFP",
+        "name": "Joint Task Force Pacific",
+        "countries": ["CA"]
+    },{
+        "id": "COMFORAL",
+        "name": "Comando Forze d'Altura",
+        "countries": ["IT"]
+    }],
+    "initialState" : [{
+        "side": "JTFP",
+        "country": ["CA"],
+        "units": []
+    },{
+        "side": "COMFORAL",
+        "country": ["IT"],
+        "units": []
+    },{
+        "side": "NEUTRAL",
+        "country": ["CA"],
+        "units": [{
+
+            "id": "qocow",
+            "type": "ships",
+            "className": "Ferry",
+            "position": [-123.2713473, 49.3788257],
+            "heading": 282,
+            "velocity": 0
+        }]
+
+    }]
+}

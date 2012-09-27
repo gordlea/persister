@@ -1,4 +1,4 @@
-var Persistable = require("../../persistable");
+var Persistable = require("../../persister").Persistable;
 var _ = require("underscore");
 
 var Country = Persistable.extend(function (config) {

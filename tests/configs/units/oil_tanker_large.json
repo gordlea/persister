@@ -1,0 +1,23 @@
+{
+    "className": "Tanker",
+    "wikipediaUrl": "http://en.wikipedia.org/wiki/Tank_ship",
+    "type": "tanker",
+    "sensors": {
+        "surfaceSearch": "furuno_far28x7"
+    },
+    "members": [
+        {
+            "id": "TIEUROPE",
+            "name": "TI Europe",
+            "number": "ONCP",
+	        "mmsi": "205408000",
+	        "imo": "9235268",
+            "country": "BE",
+	        "length": 379,
+	        "beam": 68,
+	        "draught": 13.4,
+	        "displacement": 509484,
+	        "maxSpeed": 8.5
+        }
+    ]
+}

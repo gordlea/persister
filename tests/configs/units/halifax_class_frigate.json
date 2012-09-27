@@ -1,0 +1,137 @@
+{
+    "className": "Halifax class frigate",
+    "wikipediaUrl": "http://en.wikipedia.org/wiki/Halifax_class_frigate",
+    "wikipediaExportUrl": "http://en.wikipedia.org/wiki/Special:Export/Halifax_class_frigate",
+    "dbpediaUrl": "http://dbpedia.org/data/Halifax_class_frigate.json",
+    "type": "frigate",
+    "displacement": 4770,
+    "length": 134.1,
+    "beam": 16.4,
+    "draught": 4.9,
+    "propulsion": [
+        {
+            "name": "General Electric LM2500 gas turbine",
+            "quantity": 2,
+            "hp": 47500
+        },
+        {
+            "name": "SEMT Pielstick 20PA6 V280 Diesel",
+            "quantity": 1,
+            "hp": 8800
+        }
+    ],
+    "speed": 54,
+    "range": 9500,
+    "complement": 225,
+    "sensors": {
+        "airSurfaceSearch": "Ericsson Sea Giraffe HC 150 (G band)",
+        "longRangeAirSearch": "Raytheon AN/SPS-49(V)5 (C/D band)",
+        "fireControl": "Signaal SPG-503 STIR 1.8 (K/I band)",
+        "activeSonar": "AN/SQS-510 Hull-mounted variable depth",
+        "passiveSonar": "AN/SQR-501 CANTASS Passive towed array"
+    },
+    "ew": "TKWA/MASS (Multi Ammunition Softkill System)",
+    "armament": [
+        {
+            "type": "MK 141 Harpoon SSM",
+            "quantity": 8
+        },
+        {
+            "type": "Evolved Sea Sparrow Missile SAM/SSM",
+            "quantity": 16
+        },
+        {
+            "type": "M2 Browning machine guns",
+            "quantity": 6
+        },
+        {
+            "type": "Bofors 57 mm Mk 2 gun",
+            "quantity": 1
+        },
+        {
+            "type": "Phalanx CIWS (Mk 15 Mod 21 (Block 1B))",
+            "quantity": 1
+        },
+        {
+            "type": "Mk 46 torpedoes Mod 5",
+            "quantity": 16
+        }
+    ],
+    "aircraft": [
+        "CH-124 Sea King helicopter"
+    ],
+    "members": [
+        {
+            "id": "FFH330",
+            "name": "HMCS Halifax",
+            "number": "FFH 330",
+            "country": "ca"
+        },
+        {
+            "id": "FFH331",
+            "name": "HMCS Vancouver",
+            "number": "FFH 331",
+            "country": "ca"
+        },
+        {
+            "id": "FFH332",
+            "name": "HMCS Ville de Québec",
+            "number": "FFH 332",
+            "country": "ca"
+        },
+        {
+            "number": "FFH333",
+            "name": "HMCS Toronto",
+            "number": "FFH 333",
+            "country": "ca"
+        },
+        {
+            "number": "FFH334",
+            "name": "HMCS Regina",
+            "number": "FFH 334",
+            "country": "ca"
+        },
+        {
+            "number": "FFH335",
+            "name": "HMCS Calgary",
+            "number": "FFH 335",
+            "country": "ca"
+        },
+        {
+            "id": "FFH336",
+            "name": "HMCS Montréal",
+            "number": "FFH 336",
+            "country": "ca"
+        },
+        {
+            "id": "FFH337",
+            "name": "HMCS Fredericton",
+            "number": "FFH 337",
+            "country": "ca"
+        },
+        {
+            "id": "FFH338",
+            "name": "HMCS Winnipeg",
+            "number": "FFH 338",
+            "country": "ca"
+        },
+        {
+            "id": "FFH339",
+            "name": "HMCS Charlottetown",
+            "number": "FFH 339",
+            "country": "ca"
+        },
+        {
+            "id": "FFH 340",
+            "name": "HMCS St. John's",
+            "number": "FFH 340",
+            "country": "ca"
+        },
+        {
+            "id": "FFH341",
+            "name": "HMCS Ottawa",
+            "number": "FFH 341",
+            "country": "ca"
+        }
+    ]
+}

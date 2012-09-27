@@ -2,6 +2,7 @@ var klass = require('klass');
 var Applyr = require('applyr');
 var events = require('events');
 var KlassyEventEmitter = klass(events.EventEmitter);
+var Persistable = require('./persistable')
 
 var Persister = KlassyEventEmitter.extend(function(config) {
     Applyr.applyConfigTo(this, config, this.defaults())
@@ -47,7 +48,7 @@ var Persister = KlassyEventEmitter.extend(function(config) {
         setup: function(config) {
             return new Persister(config);
         },
-        Persistable: require('./persistable')
+        Persistable: Persistable
     });
 
 module.exports = Persister;
