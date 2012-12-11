@@ -4,22 +4,33 @@ var Country = require("./objects/country");
 //
 module.exports = {
     setUp: function (callback) {
-        var persister = require('../persister').setup({
-            persistableObjectDir: path.normalize(__dirname + '/objects'),
-            persistableObjectConfigDir: path.normalize(__dirname + '/configs'),
-            dbConfig: {
-                db: "persistertesting"
-            }
+        var persister = require('../index');
 
-        });
-        persister.configure(function() {
-            persister.set('backend', 'mongo');
-        });
+//        var persister = require('../persister').setup({
+//            persistableObjectDir: path.normalize(__dirname + '/objects'),
+//            persistableObjectConfigDir: path.normalize(__dirname + '/configs'),
+//            dbConfig: {
+//                db: "persistertesting"
+//            }
+
+//        });
+//        persister.configure(function() {
+//            persister.set('backend', 'mongo');
+//        });
         persister.on('ready', function() {
             console.log("got ready")
             callback();
         });
-        persister.start();
+        persister.start({
+            persistableObjectDir: path.normalize(__dirname + '/objects'),
+            persistableObjectConfigDir: path.normalize(__dirname + '/configs'),
+            dbConfig: {
+                db: "persister-test",
+                port:27017,
+                host:'localhost'
+            }
+
+        });
     },
     tearDown: function (callback) {
         // clean up

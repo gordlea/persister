@@ -1,7 +1,8 @@
-var Persistable = require("../../index").Persistable;
+var Persistable = require("../../index").getPersistable();
 var _ = require('underscore');
+var KlassyPersistable = klass(Persistable);
 
-var Game = Persistable.extend(function(config) {
+var Game = KlassyPersistable.extend(function(config) {
 
 }).methods({
    getCollectionName: function() {

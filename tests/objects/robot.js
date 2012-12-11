@@ -1,7 +1,8 @@
-var Persistable = require("../../index").Persistable;
+var Persistable = require("../../index").getPersistable();
 var _ = require("underscore");
+var KlassyPersistable = klass(Persistable);
 
-var Robot = Persistable.extend(function (config) {
+var Robot = KlassyPersistable.extend(function (config) {
     //config is auto applied by super constructor, which is automatically called before we get here
 }).methods({
         getCollectionName:function () {

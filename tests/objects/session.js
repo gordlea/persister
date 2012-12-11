@@ -1,7 +1,8 @@
-var Persistable = require("../../index").Persistable;
+var Persistable = require("../../index").getPersistable();
 var _ = require("underscore");
+var KlassyPersistable = klass(Persistable);
 
-var Session = Persistable.extend(function (config) {
+var Session = KlassyPersistable.extend(function (config) {
     if (this.id === undefined || this.id === null && config.countryCode !== undefined && config.countryCode !== null) {
         this.id = config.countryCode;
     }

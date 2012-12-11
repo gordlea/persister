@@ -1,7 +1,8 @@
-var Persistable = require("../../index").Persistable;
+var Persistable = require("../../index").getPersistable();
 var _ = require('underscore');
+var KlassyPersistable = klass(Persistable);
 
-var UnitDefinition = Persistable.extend(function(config) {
+var UnitDefinition = KlassyPersistable.extend(function(config) {
     if (this.id === undefined || this.id === null && config.number !== undefined && config.number !== null) {
         this.id = config.number.replace(/\s/, '');
     }
